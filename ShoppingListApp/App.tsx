@@ -1,28 +1,56 @@
-import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import React, {useRef} from 'react';
+import {SafeAreaView, Text, View, StyleSheet} from 'react-native';
 import ButtonC from './components/ButtonC';
 import Header from './components/Header/Header';
 import TextInputC from './components/TextInputC';
 
 const App = () => {
-  const onChange = (data: string) => {
-    console.log('data', data);
+  const citem = 'Citem';
+  const cqualtiy = 'Cquality';
+
+  const textInputChange = (data: string, id: string) => {
+    console.log('textInputChange', data);
+    console.log('id', id);
   };
 
-  const onPress = (data?: string) => {
-    console.log('onPress');
-    console.log(data);
-    //console.log(data2);
+  const onPress = () => {
+    console.log('click');
   };
 
   return (
     <SafeAreaView>
       <Header title="Shopping List" subTitle="easy way to shopping" />
       <Text>{'Text'}</Text>
-      <TextInputC onChange={onChange} placeHolder="Test" />
-      <ButtonC title="Add Item" onPress={onPress} />
+      <View style={style.itemContainer}>
+        <View style={style.component}>
+          <TextInputC
+            uniqeId={citem}
+            onChange={textInputChange}
+            placeHolder="Enter Item"
+          />
+        </View>
+        <View style={style.component}>
+          <TextInputC
+            uniqeId={cqualtiy}
+            onChange={textInputChange}
+            placeHolder="Enter Quality"
+          />
+        </View>
+        <View style={style.component}>
+          <ButtonC onPress={onPress} title="Add Item" />
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
 
 export default App;
+
+const style = StyleSheet.create({
+  itemContainer: {
+    padding: 15,
+  },
+  component: {
+    paddingBottom: 15,
+  },
+});

@@ -10,9 +10,7 @@ interface Props {
 const ButtonC: React.FC<Props> = props => {
   const {title, onPress} = props;
   return (
-    <Pressable
-      style={[style.container, style.center]}
-      onPress={onPress.bind(undefined, '2')}>
+    <Pressable style={[style.container, style.center]} onPress={onPress}>
       <Text style={style.text}>{title}</Text>
     </Pressable>
   );
