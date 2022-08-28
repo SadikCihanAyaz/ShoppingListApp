@@ -11,7 +11,6 @@ interface Props {
 const AddItemC: React.FC<Props> = props => {
   const {ticket, label} = props;
 
-  //return <LabelTicketC text={label} />;
   return (
     <View style={style.container}>
       <View style={style.textView}>
